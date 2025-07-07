@@ -1,0 +1,17 @@
+# Ignore uploads directory
+uploads/
+
+# Ignore cache directory
+cache/
+
+# Ignore node_modules directory
+node_modules/
+
+
+
+# Ignore log files and log directory
+*.log
+log/
+
+package-lock.json
+/package-lock.json
