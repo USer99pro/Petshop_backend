@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const petRoutes = require('./routers/petrouter');
 
 const app = express();
-mongoose.connect('mongodb+srv://66309010001:6630901QQ@cluster0.ehentjn.mongodb.net/db_test')
+mongoose.connect('<< Mongodb URL >>')
                 .then( console.log("เชื่อมต่อฐานข้อมูล สำเร็จ แล้วนะจ๊ะ ++ ++")   )
 
 app.use(logger('dev'));
