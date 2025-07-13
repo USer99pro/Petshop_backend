@@ -1,5 +1,4 @@
-// controllers/petController.js
-const Pet = require('../models/PetModels');
+const Pet = require('../Models/PetModels');
 
 // สร้างสัตว์เลี้ยงใหม่
 exports.createPet = async (req, res) => {
@@ -28,31 +27,6 @@ exports.getPetById = async (req, res) => {
     const pet = await Pet.findById(req.params.id);
     if (!pet) return res.status(404).json({ error: 'ไม่พบสัตว์เลี้ยง' });
     res.status(200).json(pet);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
-
-// อัปเดตข้อมูลสัตว์เลี้ยง
-exports.updatePet = async (req, res) => {
-  try {
-    const pet = await Pet.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
-    if (!pet) return res.status(404).json({ error: 'ไม่พบสัตว์เลี้ยง' });
-    res.status(200).json(pet);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-};
-
-// ลบสัตว์เลี้ยง
-exports.deletePet = async (req, res) => {
-  try {
-    const pet = await Pet.findByIdAndDelete(req.params.id);
-    if (!pet) return res.status(404).json({ error: 'ไม่พบสัตว์เลี้ยง' });
-    res.status(200).json({ message: 'ลบข้อมูลสำเร็จ' });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
